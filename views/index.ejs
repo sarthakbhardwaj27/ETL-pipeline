@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,37 +10,53 @@
         tailwind.config = {
             darkMode: 'selector'
         }
-      </script>
+    </script>
 </head>
+
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 p-5">
     <div class="container mx-auto">
         <h1 class="text-3xl font-bold mb-5">ETL Pipeline Dashboard</h1>
 
-        <div class="mb-8">
-            <h2 class="text-2xl mb-3">MongoDB &amp; Redshift Credentials</h2>
-            <form id="credsForm">
-                <h3 class="text-lg">MongoDB Credentials</h3>
-                <input class="border p-2 mb-2 w-full dark:border-gray-600" name="mongoUser" placeholder="User" required>
-                <input class="border p-2 mb-2 w-full dark:border-gray-600" name="mongoPassword" placeholder="Password" type="password" required>
-                <input class="border p-2 mb-2 w-full dark:border-gray-600" name="mongoHost" placeholder="Host" required>
-                <input class="border p-2 mb-2 w-full dark:border-gray-600" name="mongoDatabase" placeholder="Database" required>
-
-                <h3 class="text-lg mt-4">Redshift Credentials</h3>
-                <input class="border p-2 mb-2 w-full dark:border-gray-600" name="redshiftUser" placeholder="User" required>
-                <input class="border p-2 mb-2 w-full dark:border-gray-600" name="redshiftPassword" placeholder="Password" type="password" required>
-                <input class="border p-2 mb-2 w-full dark:border-gray-600" name="redshiftHost" placeholder="Host" required>
-                <input class="border p-2 mb-2 w-full dark:border-gray-600" name="redshiftDatabase" placeholder="Database" required>
-
-                <button class="bg-blue-500 dark:bg-blue-700 text-white p-2 mt-3" type="submit">Save Credentials</button>
+        <div class="mb-8 flex flex-col items-center">
+            <form id="credsForm" action="/details" method="post" class="flex w-full max-w-3xl">
+                <div class="main-left flex-1 p-4 border-solid border-r items-center justify-center">
+                    <h3 class="text-lg">MongoDB Credentials</h3>
+                    <input class="border p-2 mb-2 w-full dark:border-gray-600 dark:bg-gray-600 rounded-md"
+                        name="mongoUser" placeholder="User" required>
+                    <input class="border p-2 mb-2 w-full dark:border-gray-600 dark:bg-gray-600 rounded-md"
+                        name="mongoPassword" placeholder="Password" type="password" required>
+                    <input class="border p-2 mb-2 w-full dark:border-gray-600 dark:bg-gray-600 rounded-md"
+                        name="mongoHost" placeholder="Host" required>
+                    <input class="border p-2 mb-2 w-full dark:border-gray-600 dark:bg-gray-600 rounded-md"
+                        name="mongoDatabase" placeholder="Database" required>
+                </div>
+        
+                <div class="main-right flex-1 p-4">
+                    <h3 class="text-lg mt-4">Redshift Credentials</h3>
+                    <input class="border p-2 mb-2 w-full dark:border-gray-600 dark:bg-gray-600 rounded-md"
+                        name="redshiftUser" placeholder="User" required>
+                    <input class="border p-2 mb-2 w-full dark:border-gray-600 dark:bg-gray-600 rounded-md"
+                        name="redshiftPassword" placeholder="Password" type="password" required>
+                    <input class="border p-2 mb-2 w-full dark:border-gray-600 dark:bg-gray-600 rounded-md"
+                        name="redshiftHost" placeholder="Host" required>
+                    <input class="border p-2 mb-2 w-full dark:border-gray-600 dark:bg-gray-600 rounded-md"
+                        name="redshiftDatabase" placeholder="Database" required>
+                </div>
             </form>
+            
+            <button class="bg-blue-500 dark:bg-blue-700 text-white p-2 mt-3 w-1/4" type="submit">Save Credentials</button>
         </div>
+        
 
         <div class="mb-8">
             <h2 class="text-2xl mb-3">Scheduler Settings</h2>
             <form id="schedulerForm">
-                <input class="border p-2 mb-2 w-full dark:border-gray-600" type="number" id="ingestFrequency" placeholder="Ingest Frequency (min)" required />
-                <input class="border p-2 mb-2 w-full dark:border-gray-600" type="number" id="loadFrequency" placeholder="Load Frequency (min)" required />
-                <button class="bg-blue-500 dark:bg-blue-700 text-white p-2 mt-3" type="submit">Update Scheduler</button>
+                <input class="border p-2 mb-2 w-full dark:border-gray-600 dark:bg-gray-600 rounded-md" type="number"
+                    id="ingestFrequency" placeholder="Ingest Frequency (min)" required />
+                <input class="border p-2 mb-2 w-full dark:border-gray-600 dark:bg-gray-600 rounded-md" type="number"
+                    id="loadFrequency" placeholder="Load Frequency (min)" required />
+                <button class="bg-blue-500 dark:bg-blue-700 text-white p-2 mt-3" type="submit">Update
+                    Scheduler</button>
             </form>
         </div>
 
@@ -49,7 +66,8 @@
         </div>
 
         <div>
-            <button id="toggleDarkMode" class="fixed top-4 right-4 p-2 bg-gray-800 text-white rounded">Toggle Dark Mode</button>
+            <button id="toggleDarkMode" class="fixed top-4 right-4 p-2 bg-gray-800 text-white rounded">Toggle Dark
+                Mode</button>
         </div>
     </div>
 
@@ -62,4 +80,5 @@
         });
     </script>
 </body>
+
 </html>

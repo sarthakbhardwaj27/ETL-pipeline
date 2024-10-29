@@ -19,6 +19,11 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+app.post('/details',(req,res)=>{
+  console.log(req.body);
+  res.send('Details submitted successfully');
+})
+
 // Start server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
